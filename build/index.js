@@ -45,8 +45,12 @@ class GenerateRegisterSwPlugin {
     const { tplPath, tplData } = this
     let files = fs.readFileSync(tplPath, 'utf8')
     Object.keys(tplData).forEach((key) => {
-      const rex = new RegExp('{{' + key + '}}', 'g')
-      files = files.replace(rex, tplData[key])
+      const rex = new RegExp('(\'|\"){{' + key + '}}(\'|\")', 'g')
+      let keyObj = tplData[key]
+      if (typeof keyObj === 'string') {
+        keyObj = `'${keyObj}'`
+      }
+      files = files.replace(rex, keyObj)
     })
     return files
   }
