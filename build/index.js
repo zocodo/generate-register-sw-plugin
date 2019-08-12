@@ -4,7 +4,7 @@ const path = require('path')
 const url = require('url')
 
 
-class GenerateRegisterSWJS {
+class GenerateRegisterSwPlugin {
   // 将 `apply` 定义为其原型方法，此方法以 compiler 作为参数
   constructor(option = {}) {
     this.tplData = option.tplData || {}
@@ -21,7 +21,7 @@ class GenerateRegisterSWJS {
   apply(compiler) {
     // 指定要附加到的事件钩子函数
     compiler.hooks.emit.tapAsync(
-      'GenerateRegisterSWJS',
+      'GenerateRegisterSwPlugin',
       (compilation, callback) => {
 
         const { injectHtmlPath } = this
@@ -89,4 +89,4 @@ class GenerateRegisterSWJS {
   }
 }
 
-module.exports = GenerateRegisterSWJS;
+module.exports = GenerateRegisterSwPlugin;
