@@ -8,7 +8,7 @@ class GenerateRegisterSWJS {
   // 将 `apply` 定义为其原型方法，此方法以 compiler 作为参数
   constructor(option = {}) {
     this.tplData = option.tplData || {}
-    this.injectHtmlPath = option.injectHtmlPath || {}
+    this.injectHtmlPath = option.injectHtmlPath
     this.inject = option.inject || false
     this.swRegisterFileName = option.swRegisterFileName || 'js/swRegister.js'
     this.swFilePath = option.swFilePath || './service-worker.js'
