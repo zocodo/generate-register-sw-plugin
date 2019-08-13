@@ -7,7 +7,7 @@ module.exports = {
   clientsClaim: true,
   runtimeCaching: [
     {
-      urlPattern: /\.html|activity2019/,
+      urlPattern: /\.html/,
       handler: 'NetworkFirst',
       options: {        // Fall back to the cache after 2 seconds.
         networkTimeoutSeconds: 4,
