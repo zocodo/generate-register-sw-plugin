@@ -25,7 +25,8 @@
     "service worker",
     "service worker template",
     "inline to html",
-    "outreach to html"
+    "outreach to html",
+    "generate-register-sw-plugin"
   ],
   "author": "MrChongdong",
   "license": "ISC",
