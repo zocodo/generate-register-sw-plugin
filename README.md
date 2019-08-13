@@ -1,4 +1,14 @@
 ### 使用方法
+``` npm i generate-register-sw-plugin ```
+
+### 测试例子
+```  npm run inject:example ```
+```  npm run example ```
+
+跑完之后可以在 `dist` 目录下找到对应的 `service-worker.js` `swRegister.js` `precacheManifest.js` 等文件
+
+
+### 字段说明
 * `swFilePath`： `service-worker` 的规则文件路径，默认优先使用 `workboxGenrateSWOption` 配置中的 `swDest` 字段, 不存在上述字段的时候再使用 `swFilePath` 的值, 该字段会替换模版中的 `{{swFilePath}}` 字符串，具体请看 `build/swTpl.js` 文件
 
 * `swRegisterFileName`：生成的注册 `service-worker` 的 `js` 文件路径，没有默认使用 `js/swRegister.js` 路径
