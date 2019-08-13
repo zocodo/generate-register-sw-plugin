@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const url = require('url')
 const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin')
+const defaultGenerateSwOption = require('./defaultGenerateSwOption.js')
 
 class GenerateRegisterSwPlugin {
   // 将 `apply` 定义为其原型方法，此方法以 compiler 作为参数
@@ -13,7 +14,7 @@ class GenerateRegisterSwPlugin {
     this.injectHtmlPath = option.injectHtmlPath
     this.inject = option.inject || false
     this.swRegisterFileName = option.swRegisterFileName || 'js/swRegister.js'
-    this.swFilePath = option.swFilePath || './service-worker.js'
+    this.swFilePath = (option.workboxGenrateSWOption && option.workboxGenrateSWOption.swDest) || option.swFilePath || './service-worker.js'
     this.tplData.swFilePath = this.swFilePath
     this.tplPath = option.tplPath || path.resolve(__dirname, './swTpl.js')
     this.analysisTpl.bind(this)
@@ -25,7 +26,7 @@ class GenerateRegisterSwPlugin {
     // 指定要附加到的事件钩子函数
 
     if (this.workboxGenrateSWOption) {
-      const sw = new GenerateSW(this.workboxGenrateSWOption)
+      const sw = new GenerateSW(Object.assign(defaultGenerateSwOption, this.workboxGenrateSWOption))
       sw.apply(compiler)
     }
 
