@@ -1,6 +1,6 @@
 {
   "name": "generate-register-sw-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a plugin to generate a code snippet for registe service worker based on the template, inline or outreach to html",
   "main": "build/index.js",
   "scripts": {

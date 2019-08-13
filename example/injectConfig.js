@@ -21,8 +21,6 @@ module.exports = {
       workboxGenrateSWOption: {
         swDest: 'service-worker1.js',
         precacheManifestFilename: 'precacheManifest.[manifestHash].js',
-        importWorkboxFrom: 'disabled',
-        importScripts: 'js/workbox-sw.js',
         skipWaiting: true,
         clientsClaim: true,
         runtimeCaching: [
