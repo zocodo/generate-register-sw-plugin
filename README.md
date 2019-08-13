@@ -10,6 +10,10 @@
 * tplData：模版所需要的字段，{{env}} 会被替换成 env 值的字符串，具体请看 build/swTpl.js 文件
 
 * injectHtmlPath: 存在该字段的时候,会在这个 html 下注入js 代码,并且忽略 html-webpack-plugin 的 html
+
+* workboxGenrateSWOption: 支持workbox-webpack-plugin 的 GenerateSW 插件配置,详细见: https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#full_generatesw_config
+
+* workboxInjectManifestOption: 支持workbox-webpack-plugin 的预加载 InjectManifest 插件,详细配置见 https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#injectmanifest_plugin_2
 ```
 new GenerateRegisterSWJS({
     swFilePath: './service-worker.' + process.env.BUILD_ENV + '.js',
@@ -21,7 +25,9 @@ new GenerateRegisterSWJS({
       env: process.env.BUILD_ENV,
       version: BUILD_VERSION,
       isOpenPWA: process.env.BUILD_ENV === 'dev' ? true : true
-    }
+    },
+    workboxGenrateSWOption: object || false,
+    workboxInjectManifestOption: object || false
   })
 })
 ```
