@@ -28,5 +28,8 @@
     "outreach to html"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "workbox-webpack-plugin": "^4.3.1"
+  }
 }

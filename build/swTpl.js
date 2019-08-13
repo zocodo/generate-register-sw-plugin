@@ -3,7 +3,7 @@
     var serviceWorkerUrl = filepath + '?v=' + version
     var localVersion = localStorage.getItem('serviceWorkerVersion')
     var isNewVersion = (version != localVersion)
-    if (isUsePwa === 'true') {
+    if (isUsePwa === true) {
       if (isNewVersion && (localVersion !== null || localVersion !== undefined)) {
         version && localStorage.setItem('serviceWorkerVersion', version)
         deleteCacahe()
